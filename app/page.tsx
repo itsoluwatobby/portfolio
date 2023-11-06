@@ -1,113 +1,140 @@
-import Image from 'next/image'
+"use client"
 
+import { useState, useRef, useEffect, useCallback } from "react"
+import { useAppContext } from "@/hooks/useContexts"
+import ShellTitle from "./components/ShellTitle"
+import Globe from '@/public/hackathonGlobe.png'
+import useObserver from "@/hooks/useObserver"
+import Spark from '@/public/spark.png'
+import Help from "./components/Help"
+import Image from "next/image"
+
+// const initDisplayState = [{id: '1', entry: '', type: 'SUCCESS' as EntryType}]
+const initDate = { hour: '00', minutes: '00', seconds: '00' }
 export default function Home() {
+  const { theme } = useAppContext() as AppContextProps
+  const [inputDisplay, setInputDisplay] = useState<InputDisplayType[]>([])
+  const [time, setTime] = useState<number>(7200)
+  const [countDownTime, setCountDownTime] = useState<typeof initDate>(initDate)
+  const [dynamicOpacity, setDynamicOpacity] = useState<string>('opacity-90')
+  const { isIntersecting, observerRef } = useObserver({screenPosition: '0px'})
+
+  const [inputRef1, inputRef2] =[ useRef<HTMLInputElement>(null),  useRef<HTMLInputElement>(null)]
+  const scrollRef = useCallback((node: HTMLDivElement) => {
+    node ? node.scrollIntoView({behavior: 'smooth'}) : null
+  }, [])
+
+  const Opacities = useCallback(() => {
+    return ['opacity-20', 'opacity-10', 'opacity-25', 'opacity-10', 'opacity-20', 'opacity-25']
+  }, [])
+
+  const { hour, minutes, seconds } = countDownTime
+
+  useEffect(() => {
+    const opacityLength = Opacities()?.length - 1
+    let randomIndex: number = 0
+    let timeoutId: NodeJS.Timeout = setTimeout(()=>{})
+    let prevIndex = 0
+    if(isIntersecting === 'SWITCH'){
+      timeoutId = setInterval(() => {
+        const rand = Math.floor(Math.random() + 2)
+        randomIndex = Math.floor((opacityLength * Math.random()) + rand)
+        if(randomIndex > opacityLength) randomIndex = randomIndex - opacityLength
+        if(prevIndex === randomIndex) {
+          if(prevIndex === opacityLength) randomIndex = randomIndex - 1
+          else randomIndex = randomIndex + 1
+        }
+        setDynamicOpacity(Opacities()[randomIndex])
+        prevIndex = randomIndex // set this last
+      }, 2000)
+    }
+    else if(isIntersecting === 'STOP') {  
+      setDynamicOpacity(Opacities()[randomIndex])
+      clearInterval(timeoutId)
+    }
+    return () => {
+      clearInterval(timeoutId)
+    }
+  }, [Opacities, isIntersecting])
+
+  useEffect(() => {
+    let isMounted = true
+    if(isMounted){
+      const hour = (Math.floor(time / 3600)).toString()
+      const minutes = (Math.floor((time % 3600) / 60)).toString()
+      const seconds = (Math.floor(time % 60)).toString()
+      setCountDownTime(prev => ({ ...prev, hour, minutes, seconds }))
+    }
+    return () => {
+      isMounted = false
+    }
+  }, [time])
+
+  useEffect(() => {
+    const onload = () => inputRef1.current?.focus()
+    window.addEventListener('load', onload)
+  }, [inputRef1])
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <main 
+      ref={observerRef}
+      className={`main-page relative flex h-screen flex-col w-full px-3`}>
+      <ShellTitle 
+        theme={theme} inputDisplay={inputDisplay}
+        inputRef1={inputRef1 as React.RefObject<HTMLInputElement>}
+        setInputDisplay={setInputDisplay} inputRef={inputRef1 as React.RefObject<HTMLInputElement>}
+      />
+      {
+        inputDisplay?.map(display => (
+          <div 
+            ref={scrollRef}
+            key={display?.id} 
+            className="flex flex-col text-xs whitespace-pre-wrap">
+            {
+              display?.entry === 'help' ?
+               <Help />
+              :
+              display?.entry === 'email' ?
+                <div className="flex flex-col gap-0.5 text-blue-500 transition-all">
+                  <a href="mailto:itsoluwatobby@gmail.com" className="hover:underline">itsoluwatobby@gmail.com</a>
+                  <a href="mailto:oluwasamuel050@gmail.com" className="hover:underline">oluwasamuel050@gmail.com</a>
+                </div>
+                :
+                <div className={`${(display?.id && (display?.entry as string)?.length) ? 'block' : 'hidden'} text-[13px] text-${display?.color}-600`}>
+                  {display?.entry}
+                </div>
+            }
+            <ShellTitle 
+              theme={theme} inputDisplay={inputDisplay}
+              setInputDisplay={setInputDisplay} inputRef={inputRef2 as React.RefObject<HTMLInputElement>}
             />
-          </a>
-        </div>
-      </div>
+          </div>
+        ))
+      }
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      {/* <div className="barlow absolute flex items-center text-[40px] md:text-5xl gap-7 md:gap-9 w-40 md:pt-6">
+        <p className="relative flex items-center">
+          <span>{hour.padStart(2, '0')}</span>
+          <span className="absolute -right-2 bottom-0.5 text-xs">H</span>
+        </p>
+        <p className="relative flex items-center">
+          <span>{minutes.padStart(2, '0')}</span>
+          <span className="absolute -right-2 bottom-0.5 text-xs">M</span>
+        </p>
+        <p className="relative flex items-center">
+          <span>{seconds.padStart(2, '0')}</span>
+          <span className="absolute -right-2 bottom-0.5 text-xs">S</span>
+        </p>
+      </div> */}
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <figure className='spinning_globe m-auto w-[80%] md:w-[60%] lg:w-[35%] md:pt-5 opacity-30 transition-opacity rounded-b-lg'>
+        <Image width={200} height={200} src={Globe} alt="Globe" loading='eager' className={`top-1 w-full ${dynamicOpacity} transition-all h-full drop-shadow-xl`}/>
+      </figure>
+      
+      <figure className='absolute w-[15%] md:pt-5 opacity-30 rounded-b-lg transition-opacity'>
+        <Image width={200} height={200} src={Globe} alt="Globe" loading='eager' className={`top-1 w-full ${dynamicOpacity} transition-all h-full drop-shadow-xl`}/>
+      </figure>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
   )
 }
