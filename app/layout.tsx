@@ -20,8 +20,8 @@ export default function RootLayout({ children }: ChildrenNode) {
       <body className={`hidebars w-full h-screen`}>
         <AppDataProvider>
           <Wrapper>
-            <Navbar />
             {children}
+            <Navbar />
           </Wrapper>
         </AppDataProvider>
       </body>

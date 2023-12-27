@@ -3,6 +3,7 @@
 import { shell_Commands } from '@/utils/shellCommands'
 import { nanoid } from 'nanoid'
 import React, { useState, useEffect } from 'react'
+import { useGithub } from '@/hooks/useGithub'
 // import { readDirectory } from '@/utils/helpers'
 
 type Props = {
@@ -16,6 +17,7 @@ type Props = {
 const initDisplayState = [{id: '1', entry: '', type: 'SUCCESS' as EntryType}]
 export default function ShellTitle({ theme, inputDisplay, inputRef, inputRef1, setInputDisplay }: Props) {
   const [input, setInput] = useState<string>('')
+  const getRepos = useGithub()
 
   useEffect(() => {
     if(!inputRef?.current) return
@@ -24,7 +26,6 @@ export default function ShellTitle({ theme, inputDisplay, inputRef, inputRef1, s
     window.addEventListener('keyup', (event) => event.key === 'Enter' && windowfocus())
   }, [inputRef])
 
-  
   const setHistory = () => {
     const entry = input?.toLowerCase()?.split(' ')[0]?.trim()
     const id = nanoid(5)

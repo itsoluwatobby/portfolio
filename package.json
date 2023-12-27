@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
+    "axios": "^1.6.0",
+    "fabricjs-react": "^1.2.1",
     "nanoid": "^5.0.2",
     "next": "14.0.1",
     "react": "^18",
