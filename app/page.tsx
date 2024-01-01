@@ -19,6 +19,8 @@ export default function Home() {
     list: 'list-none my-2.5', span: 'text-[rgba(185,25,25)] text-sm'
   }
 
+  const routeLinks = ['/blog', '/shell']
+
   const FOLDER_ICONS = useCallback((classNames?: string): {[index: string]: JSX.Element} => {
     return (
       {
@@ -51,6 +53,8 @@ export default function Home() {
   // function closemenu() {
   //   sideMenuEl.style.right = '-200px';
   // }
+
+  // target={routeLinks?.includes(socialMedia?.link) ? '_self' : '_blank'}
   
   return (
     <main 
@@ -65,12 +69,19 @@ export default function Home() {
                 <div
                   className={`p-2 rounded-sm rounded-tr-xl bg-gray-600 bg-opacity-40 grid place-content-center border-2 border-t-teal-400 border-l-teal-500 border-b-teal-400 border-r-teal-500 hover:border-t-teal-600 hover:border-l-teal-700 hover:border-b-teal-500 hover:border-r-teal-400 cursor-pointer hover:opacity-95 hover:skew-y-3 hover:scale-[1.02] transition-all`}
                 >
-                  <a 
-                    href={socialMedia?.name === 'email' ? '' : socialMedia?.name === 'phone' ? '' : `${socialMedia?.link}`} target='_blank'
-                    className={`shadow-lg flex items-center text-blue-600 hover:underline w-fit hover:-skew-y-[5deg] transition-transform`}
-                    >
-                    {FOLDER_ICONS(`${theme === 'light' ? 'text-gray-800' : 'text-gray-300'} text-4xl`)[socialMedia?.name?.toLowerCase()]}
-                  </a>
+                  {/* {
+                    routeLinks?.includes(socialMedia?.link) ?
+                    <Link href={socialMedia.link}>
+
+                    </Link>
+                  : */}
+                    <a 
+                      href={socialMedia?.name === 'email' ? '' : socialMedia?.name === 'phone' ? '' : `${socialMedia?.link}`}
+                      className={`shadow-lg flex items-center text-blue-600 hover:underline w-fit hover:-skew-y-[5deg] transition-transform`}
+                      >
+                      {FOLDER_ICONS(`${theme === 'light' ? 'text-gray-800' : 'text-gray-300'} text-3xl`)[socialMedia?.name?.toLowerCase()]}
+                    </a>
+                  {/* } */}
                 </div>
                 <span className='capitalize tracking-wide text-sm'>{socialMedia?.name}</span>
               </div>

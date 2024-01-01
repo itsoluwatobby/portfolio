@@ -7,6 +7,7 @@ import Help from "../components/Help"
 import useObserver from "@/hooks/useObserver"
 import BgHome from "../components/home/BgHome"
 import ShellTitle from "../components/ShellTitle"
+import { nanoid } from "nanoid"
 
 export default function Home() {
   const { theme } = useAppContext() as AppContextProps
@@ -32,14 +33,14 @@ export default function Home() {
         theme={theme} inputDisplay={inputDisplay}
         inputRef1={inputRef1 as React.RefObject<HTMLInputElement>}
         setInputDisplay={setInputDisplay} inputRef={inputRef1 as React.RefObject<HTMLInputElement>}
-      />
+        />
       {
         inputDisplay?.map(display => (
           <Entries key={display.id}
             theme={theme}
             display={display}
             inputRef2={inputRef2}
-            inputDisplay={inputDisplay}
+            inputDisplay={inputDisplay} 
             setInputDisplay={setInputDisplay}
           />
         ))
@@ -51,11 +52,11 @@ export default function Home() {
 
 
 type EntriesTypeProps = {
-  display: InputDisplayType,
   theme: Theme,
+  display: InputDisplayType,
   inputDisplay: InputDisplayType[],
-  setInputDisplay: React.Dispatch<React.SetStateAction<InputDisplayType[]>>
   inputRef2: React.RefObject<HTMLInputElement>
+  setInputDisplay: React.Dispatch<React.SetStateAction<InputDisplayType[]>>
 }
 
 const Entries = ({ display, theme, inputDisplay, setInputDisplay, inputRef2 }: EntriesTypeProps) => {
@@ -69,7 +70,7 @@ const Entries = ({ display, theme, inputDisplay, setInputDisplay, inputRef2 }: E
       className="flex flex-col text-xs whitespace-pre-wrap">
       {
         display?.entry === 'help' ?
-          <Help />
+        <Help />
         :
         display?.entry === 'email' ?
           <div className="flex flex-col gap-0.5 text-blue-500 transition-all">
@@ -77,7 +78,7 @@ const Entries = ({ display, theme, inputDisplay, setInputDisplay, inputRef2 }: E
             <a href="mailto:oluwasamuel050@gmail.com" className="hover:underline">oluwasamuel050@gmail.com</a>
           </div>
           :
-          <div className={`${(display?.id && (display?.entry as string)?.length) ? 'block' : 'hidden'} text-[13px] text-${display?.color}-600`}>
+          <div className={`${(display?.id && (display?.entry as string)?.length) ? 'block' : 'hidden'} text-[13px] text-[${display.color}]`}>
             {display?.entry}
           </div>
       }

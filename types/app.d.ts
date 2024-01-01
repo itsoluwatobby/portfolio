@@ -10,7 +10,11 @@ type Theme = 'light' | 'dark'
 
 type AppContextProps = {
   theme: Theme,
-  setTheme: React.Dispatch<React.SetStateAction<Theme>>
+  currentUser: string,
+  commandHistory: string[],
+  setTheme: React.Dispatch<React.SetStateAction<Theme>>,
+  setCurrentUser: React.Dispatch<React.SetStateAction<string>>,
+  setCommandHistory: React.Dispatch<React.SetStateAction<string[]>>
 }
 
 type ShellCommandsType = {
@@ -18,7 +22,7 @@ type ShellCommandsType = {
 }
 
 type EntryType = 'SUCCESS' | 'ERROR' | 'WARNING'
-type COLORS = 'green' | 'red' | 'blue'
+type COLORS = 'green' | 'red' | 'blue' 
 type InputDisplayType = {
   id: string,
   entry: string | JSX.Element,
