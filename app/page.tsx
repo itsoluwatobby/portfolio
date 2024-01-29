@@ -44,7 +44,7 @@ export default function Home() {
 
       {/* <!-- ----------------------------------About------------------------------- --> */}
 
-      <div className={`${theme === 'light' ? 'text-black' : 'text-[#ababab]'} transition-colors mobile:hidden`}>
+      <div className={`${theme === 'light' ? 'text-black' : 'text-[#ababab]'} transition-colors`}>
         <div className="p-2.5">
           <div className="flex justify-between flex-wrap">
             <div className="flex-none w-[60%] midscreen:flex-auto flex flex-col gap-3 midscreen:w-full midscreen:text-sm">
