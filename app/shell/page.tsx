@@ -32,7 +32,7 @@ export default function Home() {
       <ShellTitle 
         theme={theme} inputDisplay={inputDisplay}
         inputRef1={inputRef1 as React.RefObject<HTMLInputElement>}
-        setInputDisplay={setInputDisplay} inputRef={inputRef1 as React.RefObject<HTMLInputElement>}
+         setInputDisplay={setInputDisplay} inputRef={inputRef1 as React.RefObject<HTMLInputElement>}
         />
       {
         inputDisplay?.map(display => (

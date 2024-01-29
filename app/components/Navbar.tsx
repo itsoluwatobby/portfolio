@@ -39,15 +39,15 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className={`fixed bottom-0 w-full ${theme === 'light' ? 'bg-white' : 'bg-slate-950'} z-20 transition-colors flex items-center pt-3 pb-2 px-4 border-t-[1px] border-gray-600 border-l-0 border-r-0 border-b-0 rounded-t-lg justify-between`}>
-      <div className={`flex w-fit gap-6 mobile:gap-5`}>
+    <nav className={`fixed bottom-0 w-full ${theme === 'light' ? 'bg-white' : 'bg-slate-950'} z-20 transition-colors flex items-center pt-3 pb-2 px-4 maxmobile:px-2 border-t-[1px] border-gray-600 border-l-0 border-r-0 border-b-0 rounded-t-lg justify-between`}>
+      <div className={`flex w-fit gap-6 mobile:gap-4`}>
         {
           socialMediaAccounts?.map(socialMedia => (
             <div key={socialMedia.name}
               className={`p-1 rounded-sm rounded-tr-xl bg-gray-600 bg-opacity-40 grid place-content-center border-2 border-t-teal-600 border-l-teal-700 border-b-teal-500 border-r-teal-400 cursor-pointer hover:opacity-95 hover:skew-y-3 hover:scale-[1.02] transition-all ${socialMedia.name === 'facebook' ? 'maxmobile:hidden' : ''}`}
             >
               <a 
-                href={socialMedia?.name === 'email' ? `mailto:${socialMedia.link}` : socialMedia?.name === 'phone' ? `whatsapp:${socialMedia.link}` : `${socialMedia?.link}`} target='_blank'
+                href={socialMedia?.name === 'email' ? `mailto:${socialMedia.link}` : socialMedia?.name === 'phone' ? `whatsapp:${socialMedia.link}` : `${socialMedia?.link}`} target={socialMedia.link.startsWith('https://') ? "_blank" : ''}
                 className={`shadow-lg flex items-center gap-1.5 text-blue-600 hover:underline w-fit hover:-skew-y-[5deg] transition-transform`}
                 >
                 {ICONS(`${theme === 'light' ? 'text-gray-800' : 'text-gray-300'} text-3xl`)[socialMedia?.name?.toLowerCase()]}

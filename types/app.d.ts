@@ -17,6 +17,9 @@ type AppContextProps = {
   setCommandHistory: React.Dispatch<React.SetStateAction<string[]>>
 }
 
+type Displays = 'skills' | 'experience' | 'education';
+type TargetDisplayType = Record<Displays, boolean>;
+
 type ShellCommandsType = {
   [index: string]: string
 }

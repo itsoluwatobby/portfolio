@@ -1,5 +1,5 @@
 export const socialMediaAccounts = [
-  { name: 'home', link: '/' },
+  { name: 'home', link: '#home' },
   { name: 'email', link: 'itsoluwatobby@gmail.com' },
   { name: 'twitter', link: 'https://twitter.com/itsoluwatobby' },
   { name: 'linkedin', link: 'https://linkedin.com/in/itsoluwatobby' },
@@ -9,20 +9,17 @@ export const socialMediaAccounts = [
 ];
 
 export const HomeNavigationButtons = [
-  { name: 'Home', link: '/' },
+  { name: 'Home', link: '#home' },
   { name: 'MiniBlog', link: '/blog' },
   { name: 'About', link: '#about' },
-  { name: 'Github', link: 'https://linkedin.com/in/itsoluwatobby' },
+  { name: 'LinkedIn', link: 'https://linkedin.com/in/itsoluwatobby' },
+  { name: 'Github', link: 'https://github.com/itsoluwatobby' },
   { name: 'Services', link: '#services' },
   { name: 'Shell', link: '/shell' },
   { name: 'Projects', link: '#projects' },
-  { name: 'CV', link: 'https://drive.google.com/file/d/13ksCr-6wSJ1dbP2k703HNqeWHsu6FJyF/view?usp=drive_link' },
+  { name: 'CV', link: 'https://drive.google.com/file/d/1J-spAbE9P6A_HDP6gqMV4o81-lWMaQOO/view?usp=drive_link' },
 ];
-// "home": <BiSolidHomeHeart className={classNames} />, 
-//         "github": <FaGithub className={classNames} />, 
-//         "about": <MdOutlineRoundaboutRight className={classNames} />, 
-//         "services": <MdOutlineHomeRepairService className={classNames} />,
-//         "miniBlog": <FaBlog className={classNames} />,
-//         "shell": <SiPowershell className={classNames} />,
-//         "projects": <FaProjectDiagram className={classNames} />,
-//         "CV"
+
+export const watchWords = [
+  "dockers", "c", "python", "javascript", "react.js", "node.js", "express.js", "postgresql", "bash scripting", "mongodb", "next.js", "nest.js", "devops", "nginx", "typescript", "vue.js"
+]

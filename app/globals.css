@@ -10,6 +10,13 @@ html{
   scroll-behavior: smooth;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
 .header{
   width: 100%;
   height: 100vh;
@@ -41,7 +48,6 @@ html{
 
 .main-page{
   /* height: calc(100vh - 58px); */
-  scroll-behavior: smooth;
   background-image: url('/lhackathonGlobe.png');
   background-attachment: fixed;
   background-position: center;
@@ -72,4 +78,66 @@ html{
   border-radius: 50%;
   background-color: #c5c5c5;
   text-shadow: 0 2px 2px rgba(0,0,0,0.3), 0 8px 16px rgba(0,0,0,0.25), 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* Home */
+.moving-item {
+  animation: move-around 25s infinite reverse;
+  -moz-animation: move-around 25s infinite reverse;
+}
+
+@keyframes move-around {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, 0);
+  }
+  75% {
+    transform: translate(0, -15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.moving-item1 {
+  animation: move-around1 20s infinite;
+  -moz-animation: move-around1 20s infinite;
+}
+
+@keyframes move-around1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-25px, 0);
+  }
+  75% {
+    transform: translate(0, -35px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* RESOLVE */
+.moving-item2 {
+  animation: move-around2 25s infinite;
+  -moz-animation: move-around2 25s infinite;
+}
+
+@keyframes move-around2 {
+  0% {
+    transform: translateZ(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  75% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateZ(0);
+  }
 }
