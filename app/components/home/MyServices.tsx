@@ -8,7 +8,7 @@ export default function MyServices({}: Props) {
   return (
     <div id="services" className="py-[30px]">
       <div className="p-2.5">
-        <h1 className="midscreen:text-[60px]">My Services</h1>
+        <h1 className="midscreen:text-[60px] mobile:leading-8">My Services</h1>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-10 mt-[50px]">
 
           <div className="bg-[#262626] p-10 text-[13px] font-[300] rounded-[10px] hover:bg-[#ff0004] hover:-translate-y-2.5 transition-all">
