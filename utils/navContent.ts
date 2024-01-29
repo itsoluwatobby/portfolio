@@ -1,5 +1,5 @@
 export const socialMediaAccounts = [
-  { name: 'home', link: '#home' },
+  { name: 'home', link: '/' },
   { name: 'email', link: 'itsoluwatobby@gmail.com' },
   { name: 'twitter', link: 'https://twitter.com/itsoluwatobby' },
   { name: 'linkedin', link: 'https://linkedin.com/in/itsoluwatobby' },
@@ -17,7 +17,7 @@ export const HomeNavigationButtons = [
   { name: 'Services', link: '#services' },
   { name: 'Shell', link: '/shell' },
   { name: 'Projects', link: '#projects' },
-  { name: 'CV', link: 'https://drive.google.com/file/d/1J-spAbE9P6A_HDP6gqMV4o81-lWMaQOO/view?usp=drive_link' },
+  { name: 'CV', link: 'https://drive.google.com/file/d/1_wiiOmKK3taaOcWpWD8ZyvkFsXbcELtM/view?usp=drivesdk' },
 ];
 
 export const watchWords = [
