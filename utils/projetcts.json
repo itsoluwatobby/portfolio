@@ -1,0 +1,55 @@
+{
+  "projects": [
+    {
+      "id": "1a",
+      "preview": "/images/tesla-clone.png",
+      "name": "",
+      "link": "https://relaxed-churros-d701e7.netlify.app/",
+      "description": "This is a clone of the popular Tesla webpage. Tap to visit"
+    },
+    {
+      "id": "2b",
+      "preview": "/images/tesla-clone.png",
+      "name": "Tesla Clone",
+      "link": "https://relaxed-churros-d701e7.netlify.app/",
+      "description": "This is a clone of the popular Tesla webpage. Tap to visit"
+    },
+    {
+      "id": "3c",
+      "preview": "/images/bg-2.png",
+      "name": "Swift Chat",
+      "link": "https://whatsapp-desktop-clone.onrender.com/",
+      "description": "Whatsapp desktop application, with a cloud storage implementation using MongoDB with mongoose. Tap to visit"
+    },
+    {
+      "id": "4d",
+      "preview": "/images/tesla-clone.png",
+      "name": "Tesla Clone",
+      "link": "https://relaxed-churros-d701e7.netlify.app/",
+      "description": "This is a clone of the popular Tesla webpage. Tap to visit"
+    },
+    {
+      "id": "5e",
+      "preview": "/images/tesla-clone.png",
+      "name": "Tesla Clone",
+      "link": "https://relaxed-churros-d701e7.netlify.app/",
+      "description": "This is a clone of the popular Tesla webpage. Tap to visit"
+    },
+    {
+      "id": "6f",
+      "preview": "/images/tesla-clone.png",
+      "name": "Tesla Clone",
+      "link": "https://relaxed-churros-d701e7.netlify.app/",
+      "description": "This is a clone of the popular Tesla webpage. Tap to visit"
+    },
+    {
+      "id": "1a",
+      "preview": "/images/tesla-clone.png",
+      "name": "Tesla Clone",
+      "link": "https://relaxed-churros-d701e7.netlify.app/",
+      "description": "This is a clone of the popular Tesla webpage. Tap to visit"
+    }
+  ],
+
+  "services": []
+}
