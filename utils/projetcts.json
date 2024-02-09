@@ -2,51 +2,74 @@
   "projects": [
     {
       "id": "1a",
-      "preview": "/images/tesla-clone.png",
+      "preview": "/projects/getlinked.png",
       "name": "Getlinked web app",
-      "link": "https://relaxed-churros-d701e7.netlify.app/",
-      "description": "This is a clone of the popular Tesla webpage. Tap to visit"
-    },
-    {
-      "id": "2b",
-      "preview": "/images/tesla-clone.png",
-      "name": "Tesla Clone",
-      "link": "https://relaxed-churros-d701e7.netlify.app/",
-      "description": "This is a clone of the popular Tesla webpage. Tap to visit"
-    },
-    {
-      "id": "3c",
-      "preview": "/images/tesla-clone.png",
-      "name": "Olamikun24",
-      "link": "https://olamikun24.vercel.app/#Bridal%20Party",
-      "description": "A wedding application, Gifted to a friend to help ease the burden and cost of printing Invitation Cards and also giving event directions. Tap to visit"
-    },
-    {
-      "id": "4d",
-      "preview": "/images/tesla-clone.png",
-      "name": "Contact Directory",
-      "link": "https://contact-directory-green.vercel.app/",
+      "sourceCode": ["https://github.com/itsoluwatobby/Getlinked_contest"],
+      "link": "https://getlinked-contest-oluwatobi.vercel.app/",
       "description": "This is a clone of the popular Tesla webpage. Tap to visit"
     },
     {
       "id": "5e",
-      "preview": "/images/tesla-clone.png",
+      "preview": "/projects/revolving.png",
       "name": "Revolving",
+      "sourceCode": ["https://github.com/itsoluwatobby/Revolving"],
       "link": "https://revolving.vercel.app",
       "description": "This is a clone of the popular Tesla webpage. Tap to visit"
     },
     {
+      "id": "8h",
+      "preview": "/projects/kingklass.png",
+      "name": "KingKlaas",
+      "sourceCode": ["https://github.com/itsoluwatobby/KingKlass"],
+      "link": "https://KingKlass.vercel.app/",
+      "description": "Fashion designer web application, built to help fashion designers connect easily with their clients and provide them with a platform to showcase and promote their business. Tap to visit"
+    },
+    {
+      "id": "9i",
+      "preview": "/projects/nodescript.png",
+      "name": "Node Server Script",
+      "sourceCode": [],
+      "link": "https://github.com/itsoluwatobby/node_script/blob/main/README.md",
+      "description": "This script gets you started with your node.js project with little or configuration. All you need to do is run the script. Tap to visit"
+    },
+    {
+      "id": "3c",
+      "preview": "/projects/weddingproject.png",
+      "name": "Olamikun24",
+      "sourceCode": ["https://github.com/itsoluwatobby/olamikun24"],
+      "link": "https://olamikun24.vercel.app/",
+      "description": "A wedding application, Gifted to a friend to help ease the burden and cost of printing Invitation Cards and also giving event directions. Tap to visit"
+    },
+    {
+      "id": "4d",
+      "preview": "/projects/contact-directory.png",
+      "name": "Contact Directory",
+      "sourceCode": ["https://github.com/itsoluwatobby/contact_directory"],
+      "link": "https://contact-directory-green.vercel.app/",
+      "description": "This is a clone of the popular Tesla webpage. Tap to visit"
+    },
+    {
+      "id": "2b",
+      "preview": "/projects/tesla-clone.png",
+      "name": "Tesla Clone",
+      "sourceCode": ["https://github.com/itsoluwatobby/tesla-site-clone"],
+      "link": "https://relaxed-churros-d701e7.netlify.app/",
+      "description": "This is a clone of the popular Tesla webpage. Tap to visit"
+    },
+    {
       "id": "6f",
-      "preview": "/images/bg-2.png",
+      "preview": "/projects/swiftChat.png",
       "name": "Swift Chat",
+      "sourceCode": ["https://github.com/itsoluwatobby/Chat-Application", "https://github.com/itsoluwatobby/Chat-Application-Backend"],
       "link": "https://whatsapp-desktop-clone.onrender.com/",
       "description": "Whatsapp desktop application, with a cloud storage implementation using MongoDB with mongoose. Tap to visit"
     },
     {
       "id": "7g",
-      "preview": "/images/tesla-clone.png",
-      "name": "Tesla Clone",
-      "link": "https://relaxed-churros-d701e7.netlify.app/",
+      "preview": "/projects/portfolio-preview.png",
+      "name": "Portfolio site preview",
+      "sourceCode": ["https://github.com/itsoluwatobby/portfolio"],
+      "link": "https://friendly-bugs.vercel.app/",
       "description": "This is a clone of the popular Tesla webpage. Tap to visit"
     }
   ],
