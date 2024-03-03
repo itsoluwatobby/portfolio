@@ -1,10 +1,13 @@
+"use client"
+
 import { useState } from 'react';
 import SourceData from '../../../utils/projetcts.json';
 import { Project } from './Project';
-
+// import useObserver from '@/hooks/useObserver';
 
 export const MyProjects = () => {
   const [viewMore, setViewMore] = useState<Toggle>('CLOSE');
+  // const { observerRef, isIntersecting } = useObserver({ threshold: 0.2, screenPosition: '0px' });
 
   return (
     <div id="portfolio" className="py-6 flex flex-col gap-y-6">

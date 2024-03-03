@@ -17,13 +17,13 @@ import { MyProjects } from "./components/home/MyProjects"
 export default function Home() {
   const { theme } = useAppContext() as AppContextProps
   // const [inputDisplay, setInputDisplay] = useState<InputDisplayType[]>([])
-  const { isIntersecting, observerRef } = useObserver({ screenPosition: '0px' })
+  const { isIntersecting, observerRef: homeRef } = useObserver({ screenPosition: '0px' })
 
   const routeLinks = ['/blog', '/shell']
 
   return (
     <main
-      ref={observerRef}
+      ref={homeRef}
       className={`main-page scroll-smooth relative font-poppins ${theme === 'light' ? 'text-black' : ''} transition-colors pt-3 pb-14 flex z-10 flex-col gap-6 w-full mobile:text-sm px-3`}>
       <h1
         id='home'

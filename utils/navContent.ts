@@ -10,7 +10,7 @@ export const socialMediaAccounts = [
 
 export const HomeNavigationButtons = [
   { name: 'Home', link: '#home' },
-  { name: 'MiniBlog', link: '/blog' },
+  { name: 'MiniBlog', link: 'https://revolving.vercel.app' },
   { name: 'About', link: '#about' },
   { name: 'LinkedIn', link: 'https://linkedin.com/in/itsoluwatobby' },
   { name: 'Github', link: 'https://github.com/itsoluwatobby' },

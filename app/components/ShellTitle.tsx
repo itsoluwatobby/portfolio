@@ -33,7 +33,7 @@ inputRef1, setInputDisplay }: Props) {
   const setHistory = () => {
     const entry = input?.toLowerCase()?.split(' ')[0]?.trim()
     entry?.length ? setCommandHistory(prev => ([...prev, entry])) : null
-    const id = nanoid(5)
+    const id = nanoid(5);
     if(!entry?.length) setInputDisplay(prev => ([...prev, initDisplayState[0]]))
     else if(![...Object.keys(shell_Commands)]?.includes(entry)) {
       setInputDisplay(prev => ([...prev, {id, entry: `<${input}> command not found`, type: 'ERROR', color: 'red'}]))

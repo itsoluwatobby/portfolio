@@ -1,7 +1,9 @@
+"use client"
+
+// import useObserver from '@/hooks/useObserver';
 import Image from 'next/image'
 import { useState } from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-
 
 type ProjectProps = {
   name: string;
@@ -11,13 +13,17 @@ type ProjectProps = {
 }
 export const Project = ({ name, link, preview, description }: ProjectProps) => {
   const [revealDetails, setRevealDetails] = useState<Toggle>('CLOSE');
+  // const { observerRef, isIntersecting } = useObserver({ threshold: 0.35, screenPosition: '10px' });
 
+  // console.log(isIntersecting);
+// ${isIntersecting === 'SWITCH' ? 'even:translate-x-[100%] odd:anlate-x-[100%]' : 'even:-translate-x-[100%]'}
   return (
     <div
-      id='projects'
+      // id='projects'
+      // ref={observerRef as React.LegacyRef<HTMLDivElement>}
       onMouseEnter={() => setRevealDetails('OPEN')}
       onMouseLeave={() => setRevealDetails('CLOSE')}
-      className="rounded-[10px] relative overflow-hidden h-80">
+      className={`rounded-[10px] relative overflow-hidden h-80 transition-transform`}>
       <Image
         width={440}
         height={440}
