@@ -44,7 +44,7 @@ export default function Navbar() {
         {
           socialMediaAccounts?.map(socialMedia => (
             <div key={socialMedia.name}
-              className={`p-1 rounded-sm rounded-tr-xl bg-gray-600 bg-opacity-40 grid place-content-center border-2 border-t-teal-600 border-l-teal-700 border-b-teal-500 border-r-teal-400 cursor-pointer hover:opacity-95 hover:skew-y-3 hover:scale-[1.02] transition-all ${socialMedia.name === 'facebook' ? 'maxmobile:hidden' : ''}`}
+              className={`p-1 rounded-sm rounded-tr-xl bg-gray-600 bg-opacity-40 grid place-content-center border-2 border-t-teal-600 border-l-teal-700 border-b-teal-500 border-r-teal-400 cursor-pointer hover:opacity-95 hover:skew-y-3 hover:scale-[1.02] transition-all ${['facebook', 'instagram'].includes(socialMedia.name) ? 'maxmobile:hidden' : ''}`}
             >
               <a 
                 href={socialMedia?.name === 'email' ? `mailto:${socialMedia.link}` : socialMedia?.name === 'phone' ? `whatsapp:${socialMedia.link}` : `${socialMedia?.link}`} target={socialMedia.link.startsWith('https://') ? "_blank" : ''}
