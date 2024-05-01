@@ -39,7 +39,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className={`sticky bottom-0 w-full ${theme === 'light' ? 'bg-white' : 'bg-slate-950'} z-20 transition-colors flex items-center pt-3 pb-2 px-4 maxmobile:px-2 border-t-[1px] border-gray-600 border-l-0 border-r-0 border-b-0 rounded-t-lg justify-between`}>
+    <nav className={`fixed max-w-[240px] mx-auto bottom-0 w-full ${theme === 'light' ? 'bg-white' : 'bg-slate-950'} z-20 transition-colors flex items-center pt-3 pb-2 px-4 maxmobile:px-2 border-t-[1px] border-gray-600 border-l-0 border-r-0 border-b-0 rounded-t-lg justify-between`}>
       <div className={`flex w-fit gap-6 mobile:gap-4`}>
         {
           socialMediaAccounts?.map(socialMedia => (
