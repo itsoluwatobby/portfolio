@@ -12,7 +12,7 @@ export const Summary = () => {
 
   return (
     <div className="flex flex-col transition-all h-72">
-      <div className={`flex mt-5 mb-0 mx-10 maxmobile:mx-2`}>
+      <div className={`flex mt-5 mb-0 mx-10 maxmobile:mx-2 midmobile:flex-wrap`}>
         <p className={`mr-[50px] text-lg font-medium cursor-pointer ${targetDisplay.skills ? 'border-b-2 border-[#ff0004] font-bold text-xl' : 'border-0 text-lg font-medium'} transition-all`}
           onClick={() => setTargetDisplay({ skills: true, education: false, experience: false })}
         >Skills</p>

@@ -27,7 +27,7 @@ export default function Home() {
       className={`main-page scroll-smooth relative font-poppins ${theme === 'light' ? 'text-black' : ''} transition-colors pt-3 pb-14 flex z-10 flex-col gap-6 w-full mobile:text-sm px-3`}>
       <h1
         id='home'
-        className="font-courier text-6xl text-pr-200"><span className='text-pr-500'>O</span>LUWATOBI<span className="animate-pulse">.</span></h1>
+        className="font-courier text-6xl midmobile:text-5xl text-pr-200"><span className='text-pr-500'>O</span>LUWATOBI<span className="animate-pulse">.</span></h1>
 
       <NavSection />
 
