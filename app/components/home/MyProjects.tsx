@@ -5,7 +5,11 @@ import SourceData from '../../../utils/projetcts.json';
 import { Project } from './Project';
 // import useObserver from '@/hooks/useObserver';
 
-export const MyProjects = () => {
+type Props = {
+  theme: Theme;
+}
+
+export const MyProjects = ({ theme }: Props) => {
   const [viewMore, setViewMore] = useState<Toggle>('CLOSE');
   // const { observerRef, isIntersecting } = useObserver({ threshold: 0.2, screenPosition: '0px' });
 
@@ -26,7 +30,7 @@ export const MyProjects = () => {
       </div>
       <button
         onClick={() => setViewMore(prev => prev === 'CLOSE' ? 'OPEN' : 'CLOSE')}
-        className="self-center block margin w-fit border border-[#ff004f] py-3.5 px-[50px] rounded-md no-underline text-white transition-all hover:bg-[#ff004f]">{viewMore === 'CLOSE' ? 'View More' : 'View Less'}</button>
+        className={`self-center block margin w-fit border border-[#ff004f] py-3.5 px-[50px] rounded-md no-underline ${theme === 'light' ? 'text-[#000000] font-medium' : 'text-white'} transition-all hover:bg-[#ff004f]`}>{viewMore === 'CLOSE' ? 'View More' : 'View Less'}</button>
     </div>
   )
 }

@@ -33,9 +33,9 @@ export default function Home() {
 
       <AboutMe theme={theme} />
 
-      <MyServices />
+      <MyServices theme={theme} />
 
-      <MyProjects />
+      <MyProjects theme={theme} />
 
       {/* <!------------------------------- Contact --------------------------------> */}
 

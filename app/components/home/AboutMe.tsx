@@ -9,7 +9,7 @@ export const AboutMe = ({ theme }: AboutMeProps) => {
 
   const About = {
     about1: " Hello World!, I'm Oluwatobi Akinola Samuel, a software engineer who oves turning complex problems into elegant solutions. I have gained extensive knowledge and skills in various programming languages and frameworks, including Javascript, Typescript, Node.js, React.js, bash scripting, Nest.js, Python, Next.js and C",
-    about2: "I'm here to to make the world a better place and also improve on myself while at that. If you need a developer with a good work ethic, I would be an excellent candidate for your team. Thank you for been here and I look forward to hearing from you."
+    about2: "I'm here to to make good softwares and also improve on myself while at that. If you need a developer with a good work ethic, I would be an excellent candidate for your team. Thank you for been here and I look forward to hearing from you."
   }
 
   const bodyContent = About.about1.split(/[\s,]+/).map((word, index) => {
