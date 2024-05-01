@@ -14,7 +14,7 @@ export const MyProjects = ({ theme }: Props) => {
   // const { observerRef, isIntersecting } = useObserver({ threshold: 0.2, screenPosition: '0px' });
 
   return (
-    <div id="portfolio" className="py-6 flex flex-col gap-y-6">
+    <div id="projects" className="py-6 flex flex-col gap-y-6">
       <div className="p-2.5">
         <h1 className="text-[60px]">My Work</h1>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 mt-[50px]">
